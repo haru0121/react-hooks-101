@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect,useState} from 'react'
 
 const App=(props)=> {
 	const [state,setState] = useState(props)
@@ -7,6 +7,14 @@ const App=(props)=> {
 	const reset=()=>{
 		setState(props);
 	}
+
+	useEffect(()=>{
+		console.log('最初だけ');
+	},[])
+
+	useEffect(()=>{
+		console.log('name変更時だけ');
+	},[name])
   return (
   <>
 		<p>現在の{name}は{price}円です</p>
