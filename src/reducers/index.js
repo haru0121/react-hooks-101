@@ -3,6 +3,7 @@ const events=(state=[],action)=>{
     case "CREATE_EVENT":
       const event={title:action.title,body:action.body}
       const length = state.length;
+      let id;
       if(length===0){
         id=1;
       }else{
@@ -10,6 +11,7 @@ const events=(state=[],action)=>{
       }
       return [...state,{id:id,...event}]
     case "DELETE_EVENT":
+      return state.filter(event=>event.id!==action.id);
     return state
     case "DELETE_ALL_EVENTS":
       return []
