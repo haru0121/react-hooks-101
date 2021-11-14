@@ -1,10 +1,11 @@
 import React from 'react'
+import {DELETE_EVENT} from '../actions/index.js';
 const Event=({dispatch,event})=> {
   
       const id =event.id;
       const handleClickDeletBtn=()=>{
         const result=window.confirm(id+"を削除しても良いですか");
-        if(result) dispatch({type:"DELETE_EVENT",id:id});
+        if(result) dispatch({type:DELETE_EVENT,id:id});
       }
       return(<tr>
         <td>{id}</td>
