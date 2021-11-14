@@ -37,7 +37,7 @@ const EventForm=()=>{
 
   <button className="btn btn-primary" onClick={addEvent} disabled={unCreateble}>作成</button>
   <button className="btn btn-danger">削除</button>
-  <button className="btn btn-danger" onClick={deleteAllEvents} disabled={state.length===0}>全て削除</button>
+  <button className="btn btn-danger" onClick={deleteAllEvents} disabled={state.events.length===0}>全て削除</button>
 </form>
   </>);
 }
