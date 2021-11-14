@@ -3,7 +3,8 @@ const Event=({dispatch,event})=> {
   
       const id =event.id;
       const handleClickDeletBtn=()=>{
-        dispatch({type:"DELETE_EVENT",id:id});
+        const result=window.confirm(id+"を削除しても良いですか");
+        if(result) dispatch({type:"DELETE_EVENT",id:id});
       }
       return(<tr>
         <td>{id}</td>

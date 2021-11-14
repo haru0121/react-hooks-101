@@ -16,6 +16,13 @@ const App=()=> {
 		setTitle('');
 		setBody('');
 	}
+	const deleteAllEvents=(e)=>{
+		e.preventDefault();
+		const result=window.confirm("全て削除して良いですか");
+		if(result)dispatch({type:"DELETE_ALL_EVENTS"})
+	}
+
+	const unCreateble=title===''||body==='';
   return (
   <>
 		<div className="container-fluid">
@@ -32,9 +39,9 @@ const App=()=> {
 					<textarea id="formEventBody" className="form-control" value={body} onChange={e=>setBody(e.target.value)} />
 				</div>
 
-				<button className="btn btn-primary" onClick={addEvent}>作成</button>
+				<button className="btn btn-primary" onClick={addEvent} disabled={unCreateble}>作成</button>
 				<button className="btn btn-danger">削除</button>
-				<button className="btn btn-danger">全て削除</button>
+				<button className="btn btn-danger" onClick={deleteAllEvents} disabled={state.length===0}>全て削除</button>
 			</form>
 
 			<h4>イベント一覧</h4>
