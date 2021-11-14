@@ -20,6 +20,7 @@ const App=(props)=> {
 
 				<button className="btn btn-primary">作成</button>
 				<button className="btn btn-danger">削除</button>
+				<button className="btn btn-danger">全て削除</button>
 			</form>
 
 			<h4>イベント一覧</h4>
