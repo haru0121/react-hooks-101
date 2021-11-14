@@ -34,6 +34,16 @@ const EventForm=()=>{
 	}
 
 	const unCreateble=title===''||body==='';
+
+  const deleteAllOperationLogs=e=>{
+    e.preventDefault();
+    const result=window.confirm("本当に削除しますか");
+    if(result){
+      dispatch({
+        type:DELETE_ALL_OPERATION_LOG
+      });
+    }
+  }
   return(<>
   <h4>イベント作成</h4>
 
@@ -51,6 +61,7 @@ const EventForm=()=>{
   <button className="btn btn-primary" onClick={addEvent} disabled={unCreateble}>作成</button>
   <button className="btn btn-danger">削除</button>
   <button className="btn btn-danger" onClick={deleteAllEvents} disabled={state.events.length===0}>全て削除</button>
+  <button className="btn btn-danger" onClick={deleteAllOperationLogs} disabled={state.operationLogs.length===0}>全てのログを削除</button>
 </form>
   </>);
 }
